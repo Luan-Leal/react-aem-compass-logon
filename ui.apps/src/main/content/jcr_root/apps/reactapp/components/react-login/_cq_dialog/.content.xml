@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="React - Login Page"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+   <content jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+      <layout jcr:primaryType="nt:unstructured"
+              margin="{Boolean}false"
+              sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+      <items jcr:primaryType="nt:unstructured">
+         <column jcr:primaryType="nt:unstructured"
+                 sling:resourceType="granite/ui/components/coral/foundation/container">
+            <items jcr:primaryType="nt:unstructured">
+               <title cq-msm-lockable="./title"
+                      fieldLabel="Digite o Titulo"
+                      jcr:primaryType="nt:unstructured"
+                      name="./title"
+                      sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+               <text cq-msm-lockable="./text"
+                     fieldLabel="Digite o Text"
+                     jcr:primaryType="nt:unstructured"
+                     name="./text"
+                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+               <login cq-msm-lockable="./login"
+                      fieldLabel="Digite o Label do formulário"
+                      jcr:primaryType="nt:unstructured"
+                      name="./login"
+                      sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+               <error cq-msm-lockable="./error"
+                      fieldLabel="Digite uma mensagem de erro"
+                      jcr:primaryType="nt:unstructured"
+                      name="./error"
+                      sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+               <button cq-msm-lockable="./error"
+                       fieldLabel="Digite um texto para o botão"
+                       jcr:primaryType="nt:unstructured"
+                       name="./button"
+                       sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+            </items>
+         </column>
+      </items>
+   </content>
+</jcr:root>

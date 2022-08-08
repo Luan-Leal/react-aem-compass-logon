@@ -3,8 +3,28 @@ import LoginImg from "../../assets/login-img.png";
 export const Page = styled.div`
   display: flex;
   flex-direction: row;
-  color: white;
   width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+`;
+
+export const Right = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50vw;
+  max-height: 100vh;
+  background-image: url(${LoginImg});
+  background-size: cover;
+
+  img {
+    width: 50%;
+    height: auto;
+  }
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const Left = styled.div`
@@ -40,13 +60,13 @@ export const Left = styled.div`
     line-height: 2.5em;
     font-weight: 400;
   }
-
   label #input {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    border: 1px solid #ffffff;
+
+    border: 1px solid ${(props) => props.border};
     border-radius: 50px;
     margin-bottom: 5%;
   }
@@ -91,10 +111,17 @@ export const Left = styled.div`
   }
 
   form div span {
-    color: #e9b425;
+    color: ${(props) => props.errorColor};
     text-align: center;
     font-weight: 700;
     padding: 0 15% 0;
+  }
+
+  #error {
+    font-size: 1.1em;
+    color: ${(props) => props.errorColor};
+    text-align: center;
+    user-select: none;
   }
 
   button {
@@ -143,7 +170,7 @@ export const Left = styled.div`
 
     p,
     span {
-      font-size: 2.5em;
+      font-size: 2em;
     }
 
     label h2 {
@@ -207,13 +234,13 @@ export const Left = styled.div`
 
   @media (max-width: 1500px) {
     h1 {
-      font-size: 4.5em;
-      line-height: 1.5em;
+      font-size: 3.5em;
     }
 
     p,
     span {
-      font-size: 1.25em;
+      font-size: 1em;
+      line-height: 1.25em;
     }
 
     label h2 {
@@ -246,7 +273,7 @@ export const Left = styled.div`
   @media (max-width: 1000px) {
     width: 100vw;
     h1 {
-      font-size: 4em;
+      font-size: 3.5em;
       line-height: 1.5em;
     }
 
@@ -271,27 +298,25 @@ export const Left = styled.div`
       }
     }
 
+    form div span {
+      padding: 0 10% 0;
+    }
+
+    #error {
+      font-size: 1em;
+    }
+
     button {
       font-size: 1.25em;
     }
   }
-`;
+  @media (max-width: 600px) {
+    form div span {
+      padding: 0 0% 0;
+    }
 
-export const Right = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 50vw;
-  height: 100vh;
-  background-image: url(${LoginImg});
-  background-size: cover;
-
-  img {
-    width: 50%;
-    height: auto;
-  }
-
-  @media (max-width: 1000px) {
-    display: none;
+    #error {
+      font-size: 0.75em;
+    }
   }
 `;

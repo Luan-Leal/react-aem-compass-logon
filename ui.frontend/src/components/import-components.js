@@ -4,6 +4,8 @@ import "./Page/Page";
 import "./Container/Container";
 import "./ExperienceFragment/ExperienceFragment";
 import "./LoginPage";
+import "./HomePage";
+import "./HomePageHeader";
 
 import { MapTo } from "@adobe/aem-react-editable-components";
 

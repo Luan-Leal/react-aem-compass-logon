@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({ type, placeholder, name, value, onChange }) {
+function Input({ type, placeholder, name, value, onChange, color }) {
   return (
     <input
       type={type}

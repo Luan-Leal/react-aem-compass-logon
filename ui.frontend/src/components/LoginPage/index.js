@@ -1,40 +1,74 @@
 import { MapTo } from "@adobe/aem-react-editable-components";
-import React from "react";
+import React, { useState } from "react";
 import Input from "../microcomponents/form";
 import { Left, Page, Right } from "./style";
 import userIcon from "../../assets/user-icon.png";
 import userPassword from "../../assets/password-icon.png";
 import CompassLogo from "../../assets/white-logo.png";
 
-const LoginPage = ({ title, text, login, error, button }) => {
+export const LoginPage = ({ title, text, login, error, button }) => {
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [erro, setErro] = useState(null);
+
+  const [cor, setCor] = useState("#ffffff");
+  const [errorColor, setErrorColor] = useState("transparent");
+
+  const handleSaveUser = (event) => {
+    event.preventDefault();
+    const data = { user, password };
+    if (data.user && data.password === "admin") {
+      setErro(false);
+      window.location.replace(
+        "/content/reactapp/us/en/Compass_Logon_Home.html?wcmmode=disabled"
+      );
+    } else {
+      setErro(true);
+      setCor("#e9b425");
+      setErrorColor("#e9b425");
+    }
+  };
+
   return (
     <Page>
-      <Left>
+      <Left border={cor} errorColor={errorColor}>
         <div>
           <h1>{title}</h1>
           <p>{text}</p>
         </div>
 
         <form>
-          <label htmlFor="">
+          <label>
             <h2>{login}</h2>
             <div id="input">
-              <Input placeholder="Usuário" />
+              <Input
+                type="name"
+                placeholder="Usuário"
+                name="user"
+                value={user}
+                onChange={(event) => setUser(event.target.value)}
+              />
               <i>
                 <img src={userIcon} alt="" />
               </i>
             </div>
             <div id="input">
-              <Input placeholder="Senha" />
+              <Input
+                type="password"
+                placeholder="Senha"
+                name="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
               <i>
                 <img src={userPassword} alt="" />
               </i>
             </div>
-            <div>
+
+            <div id="error">
               <span>{error}</span>
             </div>
-
-            <button>{button}</button>
+            <button onClick={handleSaveUser}>{button}</button>
           </label>
         </form>
       </Left>
